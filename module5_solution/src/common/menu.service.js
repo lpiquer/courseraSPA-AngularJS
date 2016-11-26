@@ -18,7 +18,6 @@ function MenuService($http, ApiPath) {
   };
 
   service.getUserData = function(){
-    console.log("service.getUserData", service.userData);
     return service.userData;
   };
 
