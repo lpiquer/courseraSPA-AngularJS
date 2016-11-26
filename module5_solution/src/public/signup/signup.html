@@ -1,0 +1,41 @@
+<div class="container">
+    <form name='signForm' ng-controller="SignUpController as sign" novalidate>
+        <h1>Sign Up Form</h1>
+        <br>
+
+        <input class="visibleText" type="text" name="firstname" ng-model="sign.user.firstname" placeholder="First Name" minlength="4" required>
+        <span ng-if="((signForm.firstname.$error.required || signForm.firstname.$invalid) && signForm.firstname.$touched)">
+            Firstname can't be empty
+        </span>
+        <br>
+
+        <input class="visibleText" type="text" name="lastname" ng-model="sign.user.lastname" placeholder="Last Name" required>
+        <span ng-if="(signForm.lastname.$error.required && signForm.lastname.$touched)">
+            Lastname can't be empty
+        </span>
+        <br>
+        <input class="visibleText" type="email" name="email" ng-model="sign.user.email" placeholder="Email" required>
+        <span ng-if="(signForm.email.$error.required && signForm.email.$invalid && signForm.email.$touched)">
+            Email is not a valid address
+        </span>
+        <br>
+        <input class="visibleText" type="text" name="phonenumber" ng-model="sign.user.phonenumber" placeholder="Phone Number" pattern="(\d{3})-(\d{3})-(\d{4})" required>
+        <span ng-if="(signForm.phonenumber.$error.required && signForm.phonenumber.$invalid && signForm.phonenumber.$touched)">
+            Phone number format is not valid
+        </span>
+        <br>
+        <input class="visibleText" type="text" name="favorite_dish" ng-model="sign.user.favorite_dish" placeholder="Favorite dish" required>
+        <span ng-if="(signForm.favorite_dish.$error.required && signForm.favorite_dish.$touched)">
+            Dish not selected
+        </span>
+        <br>
+        <button class="visibleText" ng-disabled="signForm.$invalid" ng-click="sign.setUserData()">Submit</button>
+        <br>
+        <span ng-if="sign.message">
+            {{sign.message}}
+        </span>
+
+
+    </form>
+
+</div>

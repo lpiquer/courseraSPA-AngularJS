@@ -1,0 +1,41 @@
+<div class="container">
+    <form name='myInfoForm'>
+
+      <h1>My Info</h1>
+      <br>
+
+      <div ng-show="myInfo.user.firstname === ''" class="ng-show">
+        Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+      </div>
+      <div ng-show="myInfo.user.firstname !== ''" class="ng-show">
+        <div class="text">
+          First name: {{ myInfo.user.firstname}}
+        </div>
+        <div class="text">
+          Last name: {{ myInfo.user.lastname}}
+        </div>
+        <div class="text-text">
+          Email: {{ myInfo.user.email}}
+        </div>
+        <div class="text-text">
+          Phone number: {{ myInfo.user.phonenumber}}
+        </div>
+        <div>
+          <br>
+          <div class="text-text">
+            Name: {{ myInfo.user.dishData.name}}
+          </div>
+          <div class="text-text">
+            Description: {{ myInfo.user.dishData.description}}
+          </div>
+          <br>
+          <div>
+            <img ng-src="{{ myInfo.user.dishImage}}" alt="Image" />
+          </div>
+
+
+        </div>
+      </div>
+    </form>
+
+</div>
